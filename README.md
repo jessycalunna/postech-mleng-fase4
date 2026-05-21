@@ -98,29 +98,24 @@ tech-challenge-fase4/
 
 ### Parte 1 — Executar os notebooks no Databricks
 
-Execute os notebooks em ordem no workspace `fevm-jessyca-sandbox`:
+Execute os notebooks em ordem em uma workspace Databricks ou ambiente Python:
 
 1. **01_coleta_dados** — baixa PETR4 do Yahoo Finance e grava a tabela Delta `postech_fase4.precos_acoes`
 2. **02_treinamento_lstm** — tuning Hyperband, treina o LSTM final e salva `lstm_model.keras`, `scaler.pkl` e `metadata.json` no volume UC
 
 ### Parte 2 — Baixar os artefatos do volume
 
-```sh
-cd api && mkdir -p artifacts
-databricks fs cp dbfs:/Volumes/jessyca_sandbox_catalog/postech_fase4/artefatos/lstm_model.keras  artifacts/ --profile fevm-jessyca-sandbox
-databricks fs cp dbfs:/Volumes/jessyca_sandbox_catalog/postech_fase4/artefatos/scaler.pkl        artifacts/ --profile fevm-jessyca-sandbox
-databricks fs cp dbfs:/Volumes/jessyca_sandbox_catalog/postech_fase4/artefatos/metadata.json     artifacts/ --profile fevm-jessyca-sandbox
-```
+Realize o download dos artefatos gerados para criação da API.
 
 ### Parte 3 — Rodar a API local
 
 1. Clone o Repositório
    ```sh
-   git clone https://github.com/jessycalunna/postech-proj-fase4.git
-   cd postech-proj-fase4/api
+   git clone https://github.com/jessycalunna/postech-mleng-fase4.git
+   cd postech-mleng-fase4/api
    ```
 
-2. Crie o Ambiente Virtual com `uv` (requer Python 3.11)
+2. Crie o Ambiente Virtual com Python 3.11
    ```sh
    uv venv --python 3.11
    source .venv/bin/activate
@@ -137,15 +132,9 @@ databricks fs cp dbfs:/Volumes/jessyca_sandbox_catalog/postech_fase4/artefatos/m
    ```
    > Acesse em: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-5. Execute o Smoke Test (opcional)
-   ```sh
-   python test_api.py
-   ```
-
 ### Parte 4 — Monitoramento com Prometheus (opcional)
 
 ```sh
-# instale: brew install prometheus
 prometheus --config.file=prometheus.yml
 ```
 > Acesse em: [http://localhost:9090](http://localhost:9090)
