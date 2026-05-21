@@ -1,0 +1,23 @@
+{
+  "ticker": "PETR4.SA",
+  "window_size": 60,
+  "epochs": 25,
+  "batch_size": 32,
+  "best_hyperparameters": {
+    "units_1": 96,
+    "units_2": 16,
+    "dropout": 0.3,
+    "learning_rate": 0.01
+  },
+  "metrics": {
+    "mae": 0.522572616221374,
+    "rmse": 0.6900628246224353,
+    "mape": 1.528597757745152
+  },
+  "data_period": [
+    "2018-01-02",
+    "2025-12-30"
+  ],
+  "n_samples_train": 1542,
+  "n_samples_test": 386
+}
