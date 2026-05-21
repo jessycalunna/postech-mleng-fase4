@@ -84,7 +84,6 @@ tech-challenge-fase4/
 │   └── 02_treinamento_lstm.py    ← tuning Hyperband + treino LSTM + salva artefatos
 └── api/
     ├── app.py                    ← FastAPI + Prometheus
-    ├── test_api.py               ← smoke test com dados reais
     ├── requirements.txt
     ├── prometheus.yml            ← config scrape Prometheus
     └── artifacts/                ← baixados do UC Volume
